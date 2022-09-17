@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "apache.fullname" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "apache.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "apache.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "apache.selectorLabels" . | nindent 8 }}
+    spec:
+      initContainers:
+        - name: {{ .Values.initcontainer.name}}
+          image: {{ .Values.initcontainer.image }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ['chown', '-R','www-data:www-data','/storage','/data','/var/www/html']
+          command: ['chmod', '-R', '777','/storage','/data','/var/log/apache2']
+          
+          securityContext:
+            runAsUser: {{ .Values.securityContext.runAsUser }}
+            privileged: {{ .Values.securityContext.privileged }}
+          volumeMounts:
+            - name: {{ .Values.igate_mount.name }}
+              mountPath:  {{ .Values.igate_mount.mountPath }}
+            - name:  {{ .Values.igate_apache_logs.name }}
+              mountPath: {{ .Values.igate_apache_logs.mountPath}}
+            - mountPath: {{ .Values.csv_to_iporting.mountPath }}
+              name: {{ .Values.csv_to_iporting.name }}  
+              
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+          - name: {{ .Values.service.portName }}
+            containerPort: 80
+            protocol: TCP
+
+          volumeMounts:
+            - mountPath: {{ .Values.igate_mount.mountPath }}
+              name: {{ .Values.igate_mount.name }}
+            
+            - mountPath: {{ .Values.csv_to_iporting.mountPath }}
+              name: {{ .Values.csv_to_iporting.name }}
+            
+            - mountPath: {{ .Values.igate_apache_logs.mountPath }}
+              name:  {{ .Values.igate_apache_logs.name }}
+
+            - mountPath: {{ .Values.configmap_getdataphp.mountpath }}
+              name:  {{ .Values.configmap_getdataphp.name }}
+
+            - mountPath: {{ .Values.configmap_getdatavariablephp.mountpath }}
+              name:  {{ .Values.configmap_getdatavariablephp.name }}  
+              
+          resources:
+            {{ .Values.resources_apache | toYaml | nindent 12 | trim }}    
+        - name: {{ .Values.sidecar.name}}
+          image: {{ .Values.sidecar.image }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - mountPath: {{ .Values.igate_apache_logs.sidecar_mountPath }}
+              name: {{ .Values.igate_apache_logs.name }}
+            - mountPath: {{ .Values.sidecar_configmap.mountPath }}
+              name: {{ .Values.sidecar_configmap.name }}   
+          resources:
+            {{ .Values.resources_sidecar | toYaml | nindent 12 | trim }}      
+      volumes:
+        - name: {{ .Values.igate_mount.name }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.igate_mount.persistentVolumeClaim }}
+        - name: {{ .Values.csv_to_iporting.name}}
+          persistentVolumeClaim:
+            claimName: {{ .Values.csv_to_iporting.persistentVolumeClaim }}
+        - name: {{ .Values.igate_apache_logs.name }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.igate_apache_logs.persistentVolumeClaim }}
+        - name: {{ .Values.sidecar_configmap.name }}
+          configMap:
+            name: {{ .Values.sidecar_configmap.name }}
+        - name: {{ .Values.configmap_getdataphp.name }}
+          configMap:
+            name: {{ .Values.configmap_getdataphp.name  }}
+        - name: {{ .Values.configmap_getdatavariablephp.name }}
+          configMap:
+            name: {{ .Values.configmap_getdatavariablephp.name  }}       

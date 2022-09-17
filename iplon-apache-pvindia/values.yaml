@@ -1,0 +1,110 @@
+replicaCount: 1
+
+namespace: coreapps
+
+image:
+  repository: asia.gcr.io/iplon-india/iplonap
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+  
+initcontainer:
+  name: file-owner-change
+  image:  busybox:1.28
+
+sidecar:
+  name: sidecar-promtail
+  image: grafana/promtail
+
+
+igate_mount:
+   name: igate-logs
+   mountPath: /storage/
+   subpath: '""'
+   persistentVolumeClaim: nfs-storage-apache
+
+igate_apache_logs:
+   name: promtail-apache-logs
+   mountPath: /var/log/apache2
+   sidecar_mountPath: /sidecar-logs
+   persistentVolumeClaim: nfs-storage-iplonlogs
+
+csv_to_iporting:
+   name: csv-to-iporting
+   mountPath: /data/
+   subpath: '""'
+   persistentVolumeClaim: nfs-storage-iporting
+
+sidecar_configmap:
+  name: promtail-configmap-apache
+  mountPath: /etc/promtail
+  
+resources_apache:
+  limits:
+    memory: "950Mi"
+    cpu: "850m"
+  requests:
+    memory: "500Mi"
+    cpu: "550m"
+resources_sidecar:
+  limits:
+    memory: "250Mi"    
+    cpu:  "150m"
+  requests:
+    memory: "180Mi"
+    cpu: "100m"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: 
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  runAsUser: 0
+  privileged: true
+
+service:
+  type: ClusterIP
+  port: 80
+  portName: http
+
+ingress:
+  enabled: false
+ 
+
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+configmap_getdataphp:
+  name: getdataphp
+  mountpath: "/var/www/html/get_data.php"
+  subpath: "get_data.php"
+
+configmap_getdatavariablephp:
+  name: getdatavariablephp
+  mountpath: "/var/www/html/get_data_variable.php"
+  subpath: "get_data_variable.php"
