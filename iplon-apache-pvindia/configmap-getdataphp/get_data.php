@@ -170,10 +170,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiaone/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiaone/csv-to-microgridlakeasiaone/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiaone/csv-to-microgridlakeasiaone/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiaone/csv-to-microgridlakeasiaone/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiaone/csv-to-microgridlakeasiaone/";
                 system($command);
             }elseif ($isExcluded == 2){
                 if (!is_dir("/storage/smallutilitylakeasia/logs/" . $date_string)) {
@@ -195,10 +195,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/smallutilitylakeasia/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/sulasia/csv-to-smallutilitylakeasia/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/sulasia/csv-to-smallutilitylakeasia/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/sulasia/csv-to-smallutilitylakeasia/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/sulasia/csv-to-smallutilitylakeasia/";
                 system($command);
             }elseif ($isExcluded == 3){
                 if (!is_dir("/storage/largeutilitylakeasia/logs/" . $date_string)) {
@@ -220,10 +220,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/largeutilitylakeasia/logs/" . $date_string . "/" . $vor_igate_id . "/";
                  system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/lulasia/csv-to-largeutilitylakeasia/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/lulasia/csv-to-largeutilitylakeasia/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/lulasia/csv-to-largeutilitylakeasia/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/lulasia/csv-to-largeutilitylakeasia/";
                 system($command);
             }elseif ($isExcluded == 4){
                 if (!is_dir("/storage/microgridlakeafrica/logs/" . $date_string)) {
@@ -245,10 +245,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeafrica/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglafrica/csv-to-microgridlakeafrica/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglafrica/csv-to-microgridlakeafrica/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglafrica/csv-to-microgridlakeafrica/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglafrica/csv-to-microgridlakeafrica/";
                 system($command);
             }elseif ($isExcluded == 5){
                 if (!is_dir("/storage/microgridlakeamerica/logs/" . $date_string)) {
@@ -270,10 +270,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeamerica/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglamerica/csv-to-microgridlakeamerica/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglamerica/csv-to-microgridlakeamerica/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglamerica/csv-to-microgridlakeamerica/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglamerica/csv-to-microgridlakeamerica/";
                 system($command);
             }elseif ($isExcluded == 6){
                 if (!is_dir("/storage/ampluslakeasia/logs/" . $date_string)) {
@@ -295,10 +295,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/ampluslakeasia/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/amplasia/csv-to-ampluslakeasia/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/amplasia/csv-to-ampluslakeasia/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/amplasia/csv-to-ampluslakeasia/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/amplasia/csv-to-ampluslakeasia/";
                 system($command);
             }elseif ($isExcluded == 7){
                 if (!is_dir("/storage/iplonlakeasia/logs/" . $date_string)) {
@@ -320,10 +320,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/iplonlakeasia/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/iplasia/csv-to-iplonlakeasia/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/iplasia/csv-to-iplonlakeasia/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/iplasia/csv-to-iplonlakeasia/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/iplasia/csv-to-iplonlakeasia/";
                 system($command);
             }elseif ($isExcluded == 8){
                 if (!is_dir("/storage/arraymeter/logs/" . $date_string)) {
@@ -345,10 +345,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/arraymeter/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.unsent /data/mglamerica/csv-to-microgridlakeamerica/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglamerica/csv-to-microgridlakeamerica/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglamerica/csv-to-microgridlakeamerica/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglamerica/csv-to-microgridlakeamerica/";
                 system($command);
             }elseif ($isExcluded == 9){
                 if (!is_dir("/storage/microgridlakeasiatwo/logs/" . $date_string)) {
@@ -370,10 +370,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiatwo/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiatwo/csv-to-microgridlakeasiatwo/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiatwo/csv-to-microgridlakeasiatwo/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiatwo/csv-to-microgridlakeasiatwo/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiatwo/csv-to-microgridlakeasiatwo/";
                 system($command);
             }elseif ($isExcluded == 10){
                 if (!is_dir("/storage/microgridlakeasiathree/logs/" . $date_string)) {
@@ -395,10 +395,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiathree/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiathree/csv-to-microgridlakeasiathree/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiathree/csv-to-microgridlakeasiathree/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiathree/csv-to-microgridlakeasiathree/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiathree/csv-to-microgridlakeasiathree/";
                 system($command);
             }elseif ($isExcluded == 11){
                 if (!is_dir("/storage/microgridlakeasiafour/logs/" . $date_string)) {
@@ -420,10 +420,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiafour/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiafour/csv-to-microgridlakeasiafour/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiafour/csv-to-microgridlakeasiafour/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiafour/csv-to-microgridlakeasiafour/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiafour/csv-to-microgridlakeasiafour/";
                 system($command);
             }elseif ($isExcluded == 12){
                 if (!is_dir("/storage/microgridlakeasiafive/logs/" . $date_string)) {
@@ -445,10 +445,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiafive/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiafive/csv-to-microgridlakeasiafive/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiafive/csv-to-microgridlakeasiafive/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiafive/csv-to-microgridlakeasiafive/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiafive/csv-to-microgridlakeasiafive/";
                 system($command);
             }elseif ($isExcluded == 13){
                 if (!is_dir("/storage/microgridlakeasiasix/logs/" . $date_string)) {
@@ -470,10 +470,10 @@ if ($vor_igate_id == 0) {
                 $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiasix/logs/" . $date_string . "/" . $vor_igate_id . "/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiasix/csv-to-microgridlakeasiasix/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiasix/csv-to-microgridlakeasiasix/";
                 system($command);
 
-                $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiasix/csv-to-microgridlakeasiasix/";
+                $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiasix/csv-to-microgridlakeasiasix/";
                 system($command);
             }else {
                 if (!is_dir("/storage/other/logs/" . $date_string)) {
@@ -597,10 +597,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiaone/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiaone/csv-to-microgridlakeasiaone/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiaone/csv-to-microgridlakeasiaone/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiaone/csv-to-microgridlakeasiaone/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiaone/csv-to-microgridlakeasiaone/";
             system($command);
         }elseif ($isExcluded == 2){
             if (!is_dir("/storage/smallutilitylakeasia/logs/" . $date_string)) {
@@ -620,10 +620,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/smallutilitylakeasia/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/sulasia/csv-to-smallutilitylakeasia/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/sulasia/csv-to-smallutilitylakeasia/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/sulasia/csv-to-smallutilitylakeasia/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/sulasia/csv-to-smallutilitylakeasia/";
             system($command);
         }elseif ($isExcluded == 3){
             if (!is_dir("/storage/largeutilitylakeasia/logs/" . $date_string)) {
@@ -643,10 +643,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/largeutilitylakeasia/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/lulasia/csv-to-largeutilitylakeasia/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/lulasia/csv-to-largeutilitylakeasia/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/lulasia/csv-to-largeutilitylakeasia/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/lulasia/csv-to-largeutilitylakeasia/";
             system($command);
         }elseif ($isExcluded == 4){
             if (!is_dir("/storage/microgridlakeafrica/logs/" . $date_string)) {
@@ -666,10 +666,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeafrica/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglafrica/csv-to-microgridlakeafrica/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglafrica/csv-to-microgridlakeafrica/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglafrica/csv-to-microgridlakeafrica/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglafrica/csv-to-microgridlakeafrica/";
             system($command);
         }elseif ($isExcluded == 5){
             if (!is_dir("/storage/microgridlakeamerica/logs/" . $date_string)) {
@@ -689,10 +689,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeamerica/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglamerica/csv-to-microgridlakeamerica/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglamerica/csv-to-microgridlakeamerica/";
             system($command);
           
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglamerica/csv-to-microgridlakeamerica/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglamerica/csv-to-microgridlakeamerica/";
             system($command);
         }elseif ($isExcluded == 6){
             if (!is_dir("/storage/ampluslakeasia/logs/" . $date_string)) {
@@ -714,10 +714,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/ampluslakeasia/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/amplasia/csv-to-ampluslakeasia/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/amplasia/csv-to-ampluslakeasia/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/amplasia/csv-to-ampluslakeasia/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/amplasia/csv-to-ampluslakeasia/";
             system($command);
         }elseif ($isExcluded == 7){
             if (!is_dir("/storage/iplonlakeasia/logs/" . $date_string)) {
@@ -739,10 +739,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/iplonlakeasia/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/iplasia/csv-to-iplonlakeasia/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/iplasia/csv-to-iplonlakeasia/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/iplasia/csv-to-iplonlakeasia/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/iplasia/csv-to-iplonlakeasia/";
             system($command);
         }elseif ($isExcluded == 8){
             if (!is_dir("/storage/arraymeter/logs/" . $date_string)) {
@@ -764,10 +764,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/arraymeter/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.unsent /data/mglamerica/csv-to-microgridlakeamerica/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglamerica/csv-to-microgridlakeamerica/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglamerica/csv-to-microgridlakeamerica/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglamerica/csv-to-microgridlakeamerica/";
             system($command);
         }elseif ($isExcluded == 9){
             if (!is_dir("/storage/microgridlakeasiatwo/logs/" . $date_string)) {
@@ -787,10 +787,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiatwo/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiatwo/csv-to-microgridlakeasiatwo/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiatwo/csv-to-microgridlakeasiatwo/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiatwo/csv-to-microgridlakeasiatwo/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiatwo/csv-to-microgridlakeasiatwo/";
             system($command);
         }elseif ($isExcluded == 10){
             if (!is_dir("/storage/microgridlakeasiathree/logs/" . $date_string)) {
@@ -810,10 +810,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiathree/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiathree/csv-to-microgridlakeasiathree/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiathree/csv-to-microgridlakeasiathree/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiathree/csv-to-microgridlakeasiathree/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiathree/csv-to-microgridlakeasiathree/";
             system($command);
         }elseif ($isExcluded == 11){
             if (!is_dir("/storage/microgridlakeasiafour/logs/" . $date_string)) {
@@ -833,10 +833,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiafour/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiafour/csv-to-microgridlakeasiafour/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiafour/csv-to-microgridlakeasiafour/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiafour/csv-to-microgridlakeasiafour/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiafour/csv-to-microgridlakeasiafour/";
             system($command);
         }elseif ($isExcluded == 12){
             if (!is_dir("/storage/microgridlakeasiafive/logs/" . $date_string)) {
@@ -856,10 +856,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiafive/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiafive/csv-to-microgridlakeasiafive/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiafive/csv-to-microgridlakeasiafive/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiafive/csv-to-microgridlakeasiafive/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiafive/csv-to-microgridlakeasiafive/";
             system($command);
         }elseif ($isExcluded == 13){
             if (!is_dir("/storage/microgridlakeasiasix/logs/" . $date_string)) {
@@ -879,10 +879,10 @@ if ($vor_igate_id == 0) {
             $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /storage/microgridlakeasiasix/logs/" . $date_string . "/" . $vor_igate_id . "/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv.unsent /data/mglasiasix/csv-to-microgridlakeasiasix/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv.unsent /data/mglasiasix/csv-to-microgridlakeasiasix/";
             system($command);
 
-            $command = "cd /storage/pack/" . $vor_igate_id . " && mv *.csv /data/mglasiasix/csv-to-microgridlakeasiasix/";
+            $command = "cd /storage/pack/" . $vor_igate_id . " && cp *.csv /data/mglasiasix/csv-to-microgridlakeasiasix/";
             system($command);
         }else {
             if (!is_dir("/storage/other/logs/" . $date_string)) {
@@ -915,5 +915,3 @@ if ($vor_igate_id == 0) {
 }//Datei
 
 ?>
-
-
