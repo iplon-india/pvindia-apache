@@ -9,7 +9,7 @@ image:
   tag: latest
   
 initcontainer:
-  name: file-owner-change
+  name: owner
   image:  busybox:1.28
 
 sidecar:
@@ -21,13 +21,13 @@ igate_mount:
    name: igate-logs
    mountPath: /storage/
    subpath: '""'
-   persistentVolumeClaim: nfs-storage-apache
+   persistentVolumeClaim: nfs-storage-pvapache
 
 igate_apache_logs:
    name: promtail-apache-logs
-   mountPath: /var/log/apache2
+   mountPath: /var/log/httpd
    sidecar_mountPath: /sidecar-logs
-   persistentVolumeClaim: nfs-storage-iplonlogs
+   persistentVolumeClaim: nfs-storage-ilogs
 
 csv_to_iporting:
    name: csv-to-iporting
@@ -94,9 +94,7 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
 
 configmap_getdataphp:
@@ -108,3 +106,5 @@ configmap_getdatavariablephp:
   name: getdatavariablephp
   mountpath: "/var/www/html/get_data_variable.php"
   subpath: "get_data_variable.php"
+pvc:
+  enabled: false

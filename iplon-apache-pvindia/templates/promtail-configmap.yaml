@@ -32,4 +32,4 @@ data:
           - localhost
           labels:
             job: apache-logs
-            __path__: "/sidecar-logs/*.log"
+            __path__: "/sidecar-logs/*log"

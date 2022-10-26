@@ -21,10 +21,11 @@ spec:
       labels:
         {{- include "apache.selectorLabels" . | nindent 8 }}
     spec:
-      initContainers:
-        - name: {{ .Values.initcontainer.name}}
-          image: {{ .Values.initcontainer.image }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+    #   initContainers:
+    #     - name: {{ .Values.initcontainer.name}}
+    #       image: {{ .Values.initcontainer.image }}
+    #       imagePullPolicy: {{ .Values.image.pullPolicy }}
+    #       command: ['ls -la']
           # command: ['chown', 'apache:apache','/storage','/data','/var/www/html' , '/var/log/httpd']
           # command: ['chown', 'apache:apache', '/storage/pack']
           # command: ['chown', 'apache:apache', '/storage/other']
@@ -92,16 +93,16 @@ spec:
           # command: ['chmod', '777','/storage/microgridlakeasiaone']
           # command: ['chmod', '777','/storage/microgridlakeasiaone/logs']
           
-          securityContext:
-            runAsUser: {{ .Values.securityContext.runAsUser }}
-            privileged: {{ .Values.securityContext.privileged }}
-          volumeMounts:
-            - name: {{ .Values.igate_mount.name }}
-              mountPath:  {{ .Values.igate_mount.mountPath }}
-            - name:  {{ .Values.igate_apache_logs.name }}
-              mountPath: {{ .Values.igate_apache_logs.mountPath}}
-            - mountPath: {{ .Values.csv_to_iporting.mountPath }}
-              name: {{ .Values.csv_to_iporting.name }}  
+          # securityContext:
+          #   runAsUser: {{ .Values.securityContext.runAsUser }}
+          #   privileged: {{ .Values.securityContext.privileged }}
+          # volumeMounts:
+          #   - name: {{ .Values.igate_mount.name }}
+          #     mountPath:  {{ .Values.igate_mount.mountPath }}
+          #   - name:  {{ .Values.igate_apache_logs.name }}
+          #     mountPath: {{ .Values.igate_apache_logs.mountPath}}
+          #   - mountPath: {{ .Values.csv_to_iporting.mountPath }}
+          #     name: {{ .Values.csv_to_iporting.name }}  
               
       containers:
         - name: {{ .Chart.Name }}
@@ -160,8 +161,8 @@ spec:
         - name: {{ .Values.configmap_getdataphp.name }}
           configMap:
             name: {{ .Values.configmap_getdataphp.name  }}
-            defaultMode: 777
+            defaultMode: 420
         - name: {{ .Values.configmap_getdatavariablephp.name }}
           configMap:
             name: {{ .Values.configmap_getdatavariablephp.name  }}
-            defaultMode: 777
+            defaultMode: 420
