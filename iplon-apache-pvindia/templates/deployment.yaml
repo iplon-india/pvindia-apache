@@ -25,8 +25,72 @@ spec:
         - name: {{ .Values.initcontainer.name}}
           image: {{ .Values.initcontainer.image }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          command: ['chown', '-R','www-data:www-data','/storage','/data','/var/www/html']
-          command: ['chmod', '-R', '777','/storage','/data','/var/log/apache2']
+          # command: ['chown', 'apache:apache','/storage','/data','/var/www/html' , '/var/log/httpd']
+          # command: ['chown', 'apache:apache', '/storage/pack']
+          # command: ['chown', 'apache:apache', '/storage/other']
+          # command: ['chown', 'apache:apache', '/storage/other/logs']
+          # command: ['chown', 'apache:apache', '/storage/other/pack']
+          # command: ['chown', 'apache:apache','/storage','/data','/var/www/html' , '/var/log/apache2']
+          # command: ['chown', 'apache:apache', '/storage/pack']
+          # command: ['chown', 'apache:apache', '/storage/other']
+          # command: ['chown', 'apache:apache', '/storage/other/logs']
+          # command: ['chown', 'apache:apache', '/storage/other/pack']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiaone']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiaone/logs']
+          # command: ['chown', 'apache:apache', '/data/mglasiaone/']
+          # command: ['chown', 'apache:apache', '/data/mglasiaone/csv-to-microgridlakeasiaone/']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiatwo']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiatwo/logs']
+          # command: ['chown', 'apache:apache', '/data/mglasiatwo/']
+          # command: ['chown', 'apache:apache', '/data/mglasiatwo/csv-to-microgridlakeasiatwo/']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiathree']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiathree/logs']
+          # command: ['chown', 'apache:apache', '/data/mglasiathree/']
+          # command: ['chown', 'apache:apache', '/data/mglasiathree/csv-to-microgridlakeasiathree/']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiafour']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiafour/logs']
+          # command: ['chown', 'apache:apache', '/data/mglasiafour/']
+          # command: ['chown', 'apache:apache', '/data/mglasiafour/csv-to-microgridlakeasiafour/']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiafive']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiafive/logs']
+          # command: ['chown', 'apache:apache', '/data/mglasiafive/']
+          # command: ['chown', 'apache:apache', '/data/mglasiafive/csv-to-microgridlakeasiafive/']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiasix']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeasiasix/logs']
+          # command: ['chown', 'apache:apache', '/data/mglasiasix/']
+          # command: ['chown', 'apache:apache', '/data/mglasiasix/csv-to-microgridlakeasiasix/']
+          # command: ['chown', 'apache:apache', '/storage/smallutilitylakeasia']
+          # command: ['chown', 'apache:apache', '/storage/smallutilitylakeasia/logs']
+          # command: ['chown', 'apache:apache', '/data/sulasia/']
+          # command: ['chown', 'apache:apache', '/data/sulasia/csv-to-smallutilitylakeasia/']
+          # command: ['chown', 'apache:apache', '/storage/iplonlakeasia']
+          # command: ['chown', 'apache:apache', '/storage/iplonlakeasia/logs']
+          # command: ['chown', 'apache:apache', '/data/iplasia/']
+          # command: ['chown', 'apache:apache', '/data/iplasia/csv-to-iplonlakeasia/']
+          # command: ['chown', 'apache:apache', '/storage/ampluslakeasia']
+          # command: ['chown', 'apache:apache', '/storage/ampluslakeasia/logs']
+          # command: ['chown', 'apache:apache', '/data/amplasia/']
+          # command: ['chown', 'apache:apache', '/data/amplasia/csv-to-ampluslakeasia/']
+          # command: ['chown', 'apache:apache', '/storage/largeutilitylakeasia']
+          # command: ['chown', 'apache:apache', '/storage/largeutilitylakeasia/logs']
+          # command: ['chown', 'apache:apache', '/data/lulasia/']
+          # command: ['chown', 'apache:apache', '/data/lulasia/csv-to-largeutilitylakeasia/']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeafrica']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeafrica/logs']
+          # command: ['chown', 'apache:apache', '/data/mglafrica/']
+          # command: ['chown', 'apache:apache', '/data/mglafrica/csv-to-microgridlakeafrica/']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeamerica']
+          # command: ['chown', 'apache:apache', '/storage/microgridlakeamerica/logs']
+          # command: ['chown', 'apache:apache', '/data/mglamerica/']
+          # command: ['chown', 'apache:apache', '/data/mglamerica/csv-to-microgridlakeamerica/']
+          # command: ['chmod', '777','/storage','/var/log/apache2']
+          # command: ['chmod', '777','/data/','/var/log/apache2']
+          # command: ['chmod', '777','/storage/pack']
+          # command: ['chmod', '777','/storage/other']
+          # command: ['chmod', '777','/storage/other/logs']
+          # command: ['chmod', '777','/storage/other/pack']
+          # command: ['chmod', '777','/storage/microgridlakeasiaone']
+          # command: ['chmod', '777','/storage/microgridlakeasiaone/logs']
           
           securityContext:
             runAsUser: {{ .Values.securityContext.runAsUser }}
@@ -62,9 +126,11 @@ spec:
 
             - mountPath: {{ .Values.configmap_getdataphp.mountpath }}
               name:  {{ .Values.configmap_getdataphp.name }}
+              subPath: {{ .Values.configmap_getdataphp.subpath }}
 
             - mountPath: {{ .Values.configmap_getdatavariablephp.mountpath }}
-              name:  {{ .Values.configmap_getdatavariablephp.name }}  
+              name:  {{ .Values.configmap_getdatavariablephp.name }}
+              subPath: {{ .Values.configmap_getdatavariablephp.subpath }}
               
           resources:
             {{ .Values.resources_apache | toYaml | nindent 12 | trim }}    
@@ -94,6 +160,8 @@ spec:
         - name: {{ .Values.configmap_getdataphp.name }}
           configMap:
             name: {{ .Values.configmap_getdataphp.name  }}
+            defaultMode: 777
         - name: {{ .Values.configmap_getdatavariablephp.name }}
           configMap:
-            name: {{ .Values.configmap_getdatavariablephp.name  }}       
+            name: {{ .Values.configmap_getdatavariablephp.name  }}
+            defaultMode: 777
