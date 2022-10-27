@@ -25,7 +25,7 @@ igate_mount:
 
 igate_apache_logs:
    name: promtail-apache-logs
-   mountPath: /var/log/httpd
+   mountPath: /var/log/apache2
    sidecar_mountPath: /sidecar-logs
    persistentVolumeClaim: nfs-storage-ilogs
 
