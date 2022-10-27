@@ -14,7 +14,7 @@ $x=number_format($f_nr[0],0,"","");
 return $x;
 }
 $vor_igate_id = fname2nr($file_name);
-$file_log_dir = "/var/log/httpd";
+$file_log_dir = "/var/log/apache2";
 
 function pingDomain($domain, $port){
    $starttime = microtime(true);
