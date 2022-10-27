@@ -161,8 +161,8 @@ spec:
         - name: {{ .Values.configmap_getdataphp.name }}
           configMap:
             name: {{ .Values.configmap_getdataphp.name  }}
-            defaultMode: 420
+            defaultMode: 0777
         - name: {{ .Values.configmap_getdatavariablephp.name }}
           configMap:
             name: {{ .Values.configmap_getdatavariablephp.name  }}
-            defaultMode: 420
+            defaultMode: 0777
