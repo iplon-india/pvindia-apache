@@ -41,14 +41,14 @@ sidecar_configmap:
   
 resources_apache:
   limits:
-    memory: "950Mi"
+    memory: "1250Mi"
     cpu: "850m"
   requests:
-    memory: "500Mi"
+    memory: "800Mi"
     cpu: "550m"
 resources_sidecar:
   limits:
-    memory: "250Mi"    
+    memory: "250Mi"
     cpu:  "150m"
   requests:
     memory: "180Mi"
