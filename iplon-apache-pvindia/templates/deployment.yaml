@@ -128,10 +128,12 @@ spec:
             - mountPath: {{ .Values.configmap_getdataphp.mountpath }}
               name:  {{ .Values.configmap_getdataphp.name }}
               subPath: {{ .Values.configmap_getdataphp.subpath }}
+              readOnly: false
 
             - mountPath: {{ .Values.configmap_getdatavariablephp.mountpath }}
               name:  {{ .Values.configmap_getdatavariablephp.name }}
               subPath: {{ .Values.configmap_getdatavariablephp.subpath }}
+              readOnly: false
               
           resources:
             {{ .Values.resources_apache | toYaml | nindent 12 | trim }}    
