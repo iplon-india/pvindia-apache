@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.fpmpoolconf.name }}
+  namespace: {{ .Values.namespace }}
+
+data:
+  
+{{- range $path, $_ := (.Files.Glob "fpmpoolconf/*") }}
+  {{ trimPrefix "fpmpoolconf/" $path }}: |+
+    {{- tpl ($.Files.Get $path) $ | nindent 4 }}
+{{ end -}}

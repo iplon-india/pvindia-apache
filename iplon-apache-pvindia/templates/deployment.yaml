@@ -20,19 +20,19 @@ spec:
       {{- end }}
       labels:
         {{- include "apache.selectorLabels" . | nindent 8 }}
-    # spec:
-    #   initContainers:
-    #     - name: {{ .Values.initcontainer.name}}
-    #       image: {{ .Values.initcontainer.image }}
-    #       imagePullPolicy: {{ .Values.image.pullPolicy }}
-    #       command: ['ls -la']
+    spec:
+      # initContainers:
+      #   - name: {{ .Values.initcontainer.name}}
+      #     image: {{ .Values.initcontainer.image }}
+      #     imagePullPolicy: {{ .Values.image.pullPolicy }}
+      #     command: ['ls -la']
           # command: ['chown', 'apache:apache','/storage','/data','/var/www/html' , '/var/log/httpd']
           # command: ['chown', 'apache:apache', '/storage/pack']
           # command: ['chown', 'apache:apache', '/storage/other']
           # command: ['chown', 'apache:apache', '/storage/other/logs']
           # command: ['chown', 'apache:apache', '/storage/other/pack']
           # command: ['chown', 'apache:apache','/storage','/data','/var/www/html' , '/var/log/apache2']
-          # command: ['chown', 'www-data:www-data', '/var/www/html' ]
+          # command: ['chown', 'www-data:www-data', '/var/www/html/' ]
           # command: ['chown', 'apache:apache', '/storage/pack']
           # command: ['chown', 'apache:apache', '/storage/other']
           # command: ['chown', 'apache:apache', '/storage/other/logs']
@@ -122,19 +122,31 @@ spec:
             
             - mountPath: {{ .Values.csv_to_iporting.mountPath }}
               name: {{ .Values.csv_to_iporting.name }}
-            
+
             - mountPath: {{ .Values.igate_apache_logs.mountPath }}
               name:  {{ .Values.igate_apache_logs.name }}
 
-            - mountPath: {{ .Values.configmap_getdataphp.mountpath }}
-              name:  {{ .Values.configmap_getdataphp.name }}
-              subPath: {{ .Values.configmap_getdataphp.subpath }}
-              readOnly: false
+            - mountPath: {{ .Values.configmap_apache.mountpath }}
+              name:  {{ .Values.configmap_apache.name }}
+              subPath: {{ .Values.configmap_apache.subpath }}
 
-            - mountPath: {{ .Values.configmap_getdatavariablephp.mountpath }}
-              name:  {{ .Values.configmap_getdatavariablephp.name }}
-              subPath: {{ .Values.configmap_getdatavariablephp.subpath }}
-              readOnly: false
+            - mountPath: {{ .Values.mpmevent_apache.mountpath }}
+              name:  {{ .Values.mpmevent_apache.name }}
+              subPath: {{ .Values.mpmevent_apache.subpath }}
+
+            - mountPath: {{ .Values.fpmpoolconf.mountpath }}
+              name:  {{ .Values.fpmpoolconf.name }}
+              subPath: {{ .Values.fpmpoolconf.subpath }}  
+                  
+            # - mountPath: {{ .Values.configmap_getdataphp.mountpath }}
+            #   name:  {{ .Values.configmap_getdataphp.name }}
+            #   subPath: {{ .Values.configmap_getdataphp.subpath }}
+            #   readOnly: false
+
+            # - mountPath: {{ .Values.configmap_getdatavariablephp.mountpath }}
+            #   name:  {{ .Values.configmap_getdatavariablephp.name }}
+            #   subPath: {{ .Values.configmap_getdatavariablephp.subpath }}
+            #   readOnly: false
               
           resources:
             {{ .Values.resources_apache | toYaml | nindent 12 | trim }}    
@@ -161,11 +173,21 @@ spec:
         - name: {{ .Values.sidecar_configmap.name }}
           configMap:
             name: {{ .Values.sidecar_configmap.name }}
-        - name: {{ .Values.configmap_getdataphp.name }}
+        - name: {{ .Values.configmap_apache.name }}
           configMap:
-            name: {{ .Values.configmap_getdataphp.name  }}
-            defaultMode: 0777
-        - name: {{ .Values.configmap_getdatavariablephp.name }}
+            name: {{ .Values.configmap_apache.name }}
+        - name: {{ .Values.mpmevent_apache.name }}
           configMap:
-            name: {{ .Values.configmap_getdatavariablephp.name  }}
-            defaultMode: 0777
+            name: {{ .Values.mpmevent_apache.name }}
+        - name: {{ .Values.fpmpoolconf.name }}
+          configMap:
+            name: {{ .Values.fpmpoolconf.name }}    
+
+        # - name: {{ .Values.configmap_getdataphp.name }}
+        #   configMap:
+        #     name: {{ .Values.configmap_getdataphp.name  }}
+        #     defaultMode: 0777
+        # - name: {{ .Values.configmap_getdatavariablephp.name }}
+        #   configMap:
+        #     name: {{ .Values.configmap_getdatavariablephp.name  }}
+        #     defaultMode: 0777

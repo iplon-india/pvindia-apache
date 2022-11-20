@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.mpmevent_apache.name }}
+  namespace: {{ .Values.namespace }}
+
+data:
+  
+{{- range $path, $_ := (.Files.Glob "mpmeventconf/*") }}
+  {{ trimPrefix "mpmeventconf/" $path }}: |+
+    {{- tpl ($.Files.Get $path) $ | nindent 4 }}
+{{ end -}}

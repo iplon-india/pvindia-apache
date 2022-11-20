@@ -1,5 +1,4 @@
 replicaCount: 1
-
 namespace: coreapps
 
 image:
@@ -41,10 +40,10 @@ sidecar_configmap:
   
 resources_apache:
   limits:
-    memory: "1250Mi"
-    cpu: "850m"
+    memory: "2850Mi"
+    cpu: "950m"
   requests:
-    memory: "800Mi"
+    memory: "1200Mi"
     cpu: "550m"
 resources_sidecar:
   limits:
@@ -63,10 +62,8 @@ serviceAccount:
   annotations: {}
   name: ""
 podAnnotations: {}
-
 podSecurityContext: {}
   # fsGroup: 2000
-
 securityContext: 
   # capabilities:
   #   drop:
@@ -108,3 +105,28 @@ configmap_getdatavariablephp:
   subpath: "get_data_variable.php"
 pvc:
   enabled: false
+
+configmap_apache:
+  name: apacheconfig
+  mountpath: "/etc/apache2/apache2.conf"
+  subpath: "apache2.conf"
+
+mpmevent_apache:
+  name: mpmevent
+  mountpath: "/etc/apache2/mods-enabled/mpm_event.conf"
+  subpath: "mpm_event.conf"
+
+phpfpmconfig:
+  name: phpfpmconfig
+  mountpath: "/etc/php/7.4/fpm/php-fpm.conf"
+  subpath: "php-fpm.conf" 
+
+mpmprefork_apache:
+  name: mpmprefork
+  mountpath: "/etc/apache2/mods-enabled/mpm_prefork.conf"
+  subpath: "mpm_prefork.conf"
+
+fpmpoolconf:
+  name: fpmpoolconf
+  mountpath: "/etc/php/7.4/fpm/pool.d/www.conf"
+  subpath: "www.conf"
