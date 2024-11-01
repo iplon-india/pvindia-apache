@@ -137,17 +137,17 @@ spec:
             - mountPath: {{ .Values.fpmpoolconf.mountpath }}
               name:  {{ .Values.fpmpoolconf.name }}
               subPath: {{ .Values.fpmpoolconf.subpath }}  
-                  
-            # - mountPath: {{ .Values.configmap_getdataphp.mountpath }}
-            #   name:  {{ .Values.configmap_getdataphp.name }}
-            #   subPath: {{ .Values.configmap_getdataphp.subpath }}
-            #   readOnly: false
+        
+            - mountPath: {{ .Values.configmap_getdataphp.mountpath }}
+              name:  {{ .Values.configmap_getdataphp.name }}
+              subPath: {{ .Values.configmap_getdataphp.subpath }}
+              readOnly: false
 
-            # - mountPath: {{ .Values.configmap_getdatavariablephp.mountpath }}
-            #   name:  {{ .Values.configmap_getdatavariablephp.name }}
-            #   subPath: {{ .Values.configmap_getdatavariablephp.subpath }}
-            #   readOnly: false
-              
+            - mountPath: {{ .Values.configmap_getdatavariablephp.mountpath }}
+              name:  {{ .Values.configmap_getdatavariablephp.name }}
+              subPath: {{ .Values.configmap_getdatavariablephp.subpath }}
+              readOnly: false
+
           resources:
             {{ .Values.resources_apache | toYaml | nindent 12 | trim }}    
         - name: {{ .Values.sidecar.name}}
@@ -183,11 +183,11 @@ spec:
           configMap:
             name: {{ .Values.fpmpoolconf.name }}    
 
-        # - name: {{ .Values.configmap_getdataphp.name }}
-        #   configMap:
-        #     name: {{ .Values.configmap_getdataphp.name  }}
-        #     defaultMode: 0777
-        # - name: {{ .Values.configmap_getdatavariablephp.name }}
-        #   configMap:
-        #     name: {{ .Values.configmap_getdatavariablephp.name  }}
-        #     defaultMode: 0777
+        - name: {{ .Values.configmap_getdataphp.name }}
+          configMap:
+            name: {{ .Values.configmap_getdataphp.name  }}
+            defaultMode: 0777
+        - name: {{ .Values.configmap_getdatavariablephp.name }}
+          configMap:
+            name: {{ .Values.configmap_getdatavariablephp.name  }}
+            defaultMode: 0777
